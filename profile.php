@@ -27,9 +27,9 @@ if (!$user_id) {
     echo "<script>
         if (confirm(" . json_encode($message) . ")) {
             window.location.href = 'login.php';
-        } else {
-            window.location.href = 'products.php';
-        }
+        // } else {
+        //     window.location.href = 'products.php';
+        // }
     </script>";
     exit();
 }
