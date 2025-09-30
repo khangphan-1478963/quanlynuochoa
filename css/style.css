@@ -1,0 +1,145 @@
+/* Reset đơn giản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
+}
+
+body {
+  background-color: #fffafc;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background-color: #f8f1f5;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #8b4e75;
+  letter-spacing: 2px;
+}
+
+.slogan {
+  font-style: italic;
+  color: #a6668c;
+  margin-top: 10px;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('../images/lavender_garden.jpg') ;
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  height: 400px;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.55);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay h2 {
+  font-size: 2rem;
+  color: #5b3e55;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #d6a4c1;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #c08dad;
+}
+
+/* Products */
+.products {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.products h3 {
+  color: #804e6f;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background-color: #f7e6ed;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-card h4 {
+  color: #5b3e55;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.login-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.btn-login {
+  padding: 10px 20px;
+  background-color:  #d6a4c1;
+  border: 1px solid #643f55;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 450;
+  transition: 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #ae6692;
+}
+
+/* Footer */
+footer {
+  background-color: #f6d9e9;
+  text-align: center;
+  padding: 15px 10px;
+  color: #a6668c;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}

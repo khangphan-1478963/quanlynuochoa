@@ -1,0 +1,256 @@
+/* === Reset & Font === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background: #fffafc; /* Tím pastel nhạt */
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+}
+
+/* === Header === */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #8b4e75; /* Tím pastel đậm */
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'sans-serif' !important;
+    font-size: 25px;
+    text-decoration: none;
+    color: #5b3e55;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #d6a4c1; /* Tím pastel sáng khi hover */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #d6a4c1;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons a {
+    font-size: 25px;
+    color: #5b3e55;
+    transition: all 0.3s;
+}
+
+.icons a:hover {
+    color: #d6a4c1;
+    transform: scale(1.1);
+}
+
+/* === Confirmation Section === */
+.confirmation-container {
+    margin-top: 100px;
+    padding: 50px 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #804e6f;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.error {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.confirmation-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    transition: transform 0.3s;
+}
+
+.confirmation-content:hover {
+    transform: translateY(-5px);
+}
+
+.confirmation-content h2 {
+    font-size: 2rem;
+    color: #8b4e75;
+    margin-bottom: 20px;
+}
+
+.confirmation-content p {
+    font-size: 1.6rem;
+    color: #5b3e55;
+    margin: 10px 0;
+}
+
+.confirmation-content p strong {
+    color: #6a1e4b;
+}
+
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.order-item {
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.order-item h3 {
+    font-size: 1.6rem;
+    color: #8b4e75;
+    margin-bottom: 5px;
+}
+
+.order-item .price {
+    font-size: 1.4rem;
+    color: #5b3e55;
+}
+
+.order-item .quantity {
+    font-size: 1.4rem;
+    color: #5b3e55;
+}
+
+.confirmation-message {
+    font-size: 1.6rem;
+    color: #6a1e4b;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-btn {
+    display: block;
+    font-size: 1.8rem;
+    padding: 15px 40px;
+    background: #d6a4c1;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    text-align: center;
+    margin: 20px auto 0;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #b37b9e;
+}
+
+.back-btn:active {
+    transform: scale(0.98);
+}
+
+/* === Footer === */
+footer {
+    background: #f6d9e9;
+    color: #a6668c;
+    padding: 50px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 30px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .confirmation-container {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .error {
+        font-size: 1.2rem;
+    }
+
+    .confirmation-content {
+        padding: 20px;
+    }
+
+    .confirmation-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .confirmation-content p {
+        font-size: 1.4rem;
+    }
+
+    .order-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .order-item .price, .order-item .quantity {
+        font-size: 1.2rem;
+    }
+
+    .confirmation-message {
+        font-size: 1.4rem;
+    }
+
+    .back-btn {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+}

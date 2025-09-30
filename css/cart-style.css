@@ -1,0 +1,273 @@
+/* === Reset & Font === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background: #fffafc; /* Tím pastel nhạt */
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+}
+
+/* === Header === */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #8b4e75; /* Tím pastel đậm */
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #5b3e55;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #d6a4c1; /* Tím pastel sáng khi hover */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #d6a4c1;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons a {
+    font-size: 25px;
+    color: #5b3e55;
+    transition: all 0.3s;
+}
+
+.icons a:hover {
+    color: #d6a4c1;
+    transform: scale(1.1);
+}
+
+/* === Cart Section === */
+.cart-container {
+    margin-top: 100px;
+    padding: 50px 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #804e6f; /* Tím pastel đậm */
+    margin-bottom: 40px;
+}
+
+.empty-cart {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #5b3e55;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-item {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-info {
+    flex: 1;
+    position: relative; /* Để định vị nút Xóa */
+    padding-bottom: 50px; /* Đảm bảo có khoảng trống cho nút Xóa */
+}
+
+.cart-item-info h3 {
+    font-size: 1.8rem;
+    color: #8b4e75;
+    margin-bottom: 10px;
+}
+
+.cart-item-info .price {
+    font-size: 1.6rem;
+    color: #d6a4c1;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.quantity-btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #d6a4c1;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+}
+
+.quantity-btn:hover {
+    background: #b37b9e;
+}
+
+.quantity {
+    font-size: 1.2rem;
+    color: #5b3e55;
+}
+
+.remove-item {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #d6a4c1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.remove-item:hover {
+    background: #b37b9e;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.cart-total h3 {
+    font-size: 2rem;
+    color: #804e6f;
+    margin-bottom: 20px;
+}
+
+.checkout-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d6a4c1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #b37b9e;
+}
+
+/* === Footer === */
+footer {
+    background: #f6d9e9;
+    color: #a6668c;
+    padding: 50px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 30px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .cart-container {
+        padding: 30px 20px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .cart-item-info {
+        padding-bottom: 60px; /* Khoảng trống cho nút Xóa trên mobile */
+    }
+
+    .remove-item {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .cart-total {
+        text-align: center;
+    }
+
+    .checkout-btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+}

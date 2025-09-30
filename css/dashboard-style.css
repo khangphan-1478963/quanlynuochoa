@@ -1,0 +1,195 @@
+/* === Reset & Font === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background: #fffafc; /* Tím pastel nhạt */
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+}
+
+/* === Header === */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Lobster', cursive; /* Font mềm mại, nữ tính */
+    font-size: 36px; /* Tăng kích thước font logo */
+    font-weight: 700;
+    color: #8b4e75; /* Tím pastel đậm */
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #d6a4c1; /* Tím pastel sáng khi hover */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #d6a4c1; /* Dải gạch chân tím pastel sáng */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons a {
+    font-size: 25px;
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+    transition: all 0.3s;
+}
+
+.icons a:hover {
+    color: #d6a4c1; /* Tím pastel sáng khi hover */
+    transform: scale(1.1);
+}
+
+/* === Video Section === */
+.hero {
+    margin-top: 100px;
+    height: calc(100vh - 100px);
+    display: flex;
+    position: relative;
+}
+
+.video-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.video-box {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: filter 0.5s;
+}
+
+.video-box:not(:hover) video {
+    filter: grayscale(50%) brightness(0.8); /* Hiệu ứng khi không hover */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: rgba(91, 62, 85, 0.3); /* Overlay tím đậm nhẹ */
+    opacity: 1;
+    transition: all 0.5s;
+    z-index: 1; /* Đảm bảo overlay nằm trên iframe */
+}
+
+.video-box:hover .video-overlay {
+    opacity: 0; /* Ẩn overlay khi hover */
+}
+
+.video-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.video-overlay p {
+    font-size: 1.2rem;
+    max-width: 60%;
+    text-align: center;
+}
+
+/* === Featured Products === */
+.featured {
+    padding: 80px 50px;
+    background: #f7e6ed; /* Tím pastel rất nhạt */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #804e6f; /* Tím pastel đậm */
+}
+
+/* === Footer === */
+footer {
+    background: #f6d9e9; /* Tím pastel nhạt */
+    color: #a6668c; /* Tím pastel trung tính */
+    padding: 50px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column;
+    }
+    
+    .video-box {
+        height: 50vh; /* Giảm chiều cao cho màn hình nhỏ */
+    }
+    
+    nav {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+}

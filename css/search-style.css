@@ -1,0 +1,211 @@
+/* === Reset & Font === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    background: #fffafc; /* Tím pastel nhạt */
+    color: #5b3e55; /* Tím đậm nhẹ nhàng */
+}
+
+/* === Header === */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 100px;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #8b4e75; /* Tím pastel đậm */
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'sans-serif'!important;
+    font-size: 25px;
+    text-decoration: none;
+    color: #5b3e55;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #d6a4c1; /* Tím pastel sáng khi hover */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #d6a4c1;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons a {
+    font-size: 25px;
+    color: #5b3e55;
+    transition: all 0.3s;
+}
+
+.icons a:hover {
+    color: #d6a4c1;
+    transform: scale(1.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #804e6f;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.search-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.search-form { display: flex; justify-content: center; margin-bottom: 20px; }
+.search-form input[type="text"] { 
+    padding: 10px; 
+    width: 300px; 
+    border: 1px solid #d8a1c4; 
+    border-radius: 5px 0 0 5px; 
+    font-size: 1rem; 
+}
+.search-form button { 
+    padding: 10px 20px; 
+    background-color: #d8a1c4; 
+    color: white; 
+    border: none; 
+    border-radius: 0 5px 5px 0; 
+    cursor: pointer; 
+    font-size: 1rem; 
+}
+.search-form button:hover { background-color: #c48fb0; }
+.products-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+    justify-items: center; 
+}
+.product-card { 
+    background-color: #fff; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: transform 0.3s; 
+    max-width: 250px; 
+    width: 100%; 
+    cursor: pointer; 
+}
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+.product-info { padding: 15px; text-align: center; }
+.product-info h3 { margin: 0; font-size: 1.5rem; color: #d8a1c4; font-family: 'Playfair Display', serif; }
+.product-info p { margin: 5px 0; color: #666; }
+.no-data { text-align: center; color: #666; font-size: 1.2rem; margin: 20px 0; }
+.error { color: #d32f2f; text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+.cart-message { color: #4CAF50; text-align: center; margin-bottom: 20px; font-size: 1.2rem; }
+
+/* Modal styles */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 1000; 
+    justify-content: center; 
+    align-items: center; 
+}
+.modal-content { 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 10px; 
+    max-width: 500px; 
+    width: 90%; 
+    position: relative; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+.modal-content img { 
+    width: 100%; 
+    height: 500px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+.modal-content h3 { 
+    font-size: 1.8rem; 
+    color: #d8a1c4; 
+    font-family: 'Playfair Display', serif; 
+    margin: 10px 0; 
+}
+.modal-content p { 
+    color: #666; 
+    font-size: 1.3rem;
+    margin: 5px 0; 
+}
+.modal-content .close { 
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size: 1.5rem; 
+    color: #666; 
+    cursor: pointer; 
+}
+.modal-content .add-to-cart { 
+    display: block; 
+    margin-top: 15px; 
+    padding: 10px 20px; 
+    background-color: #d8a1c4; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-align: center; 
+    text-decoration: none; 
+}
+.modal-content .add-to-cart:hover { background-color: #c48fb0; }
+footer {
+    background: #f6d9e9;
+    color: #a6668c;
+    padding: 50px;
+    text-align: center;
+    margin-top: 40px;
+}
