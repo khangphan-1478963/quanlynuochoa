@@ -1,23 +1,20 @@
 <?php
 session_start();
-// Đảm bảo file connect.php đã kết nối $conn
 
-// Bật hiển thị lỗi để debug (nên tắt khi đưa vào production)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'connect.php'; // Đặt require_once sau error_reporting
+require_once 'connect.php'; 
 
 $order_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$user_id = $_SESSION['user_id'] ?? null; // Sử dụng toán tử null coalescing cho code sạch hơn
+$user_id = $_SESSION['user_id'] ?? null; 
 
-// Kiểm tra đăng nhập và đơn hàng
+
 if (!$user_id || $order_id <= 0) {
-    // Sử dụng header redirect thay vì JS, trừ khi cần hiển thị message phức tạp
-    // Tuy nhiên, nếu muốn giữ nguyên logic hiển thị cảnh báo, cần đảm bảo json_encode không bị lỗi.
+   
     $message = !$user_id ? "Bạn chưa đăng nhập tài khoản. Vui lòng đăng nhập." : "Đơn hàng không hợp lệ.";
     
-    // Giữ nguyên đoạn JS để phù hợp với code ban đầu
+    
     $target_page = $user_id ? 'profile.php' : 'login.php';
     echo "<script>
         if (confirm(" . json_encode($message) . ")) {
@@ -34,8 +31,7 @@ $order = null;
 $order_details = [];
 
 try {
-    // 1. Cải tiến: Chỉ truy vấn thông tin cần thiết.
-    // Lấy thông tin đơn hàng và thông tin khách hàng (đã được lưu khi đặt hàng)
+  
     $query = "SELECT o.id, o.total_amount, o.created_at, o.status, 
                      c.full_name, c.address, c.phone, t.email 
               FROM orders o 
@@ -57,7 +53,7 @@ try {
     if (!$order) {
         $error = "Không tìm thấy đơn hàng hoặc bạn không có quyền xem.";
     } else {
-        // Lấy chi tiết đơn hàng
+      
         $query_details = "SELECT od.quantity, od.price, p.name 
                           FROM order_details od 
                           JOIN products p ON od.product_id = p.id 
@@ -77,21 +73,20 @@ try {
         }
         mysqli_stmt_close($stmt_details);
         
-        // Cải tiến: Kiểm tra nếu không có chi tiết sản phẩm
+        
         if (empty($order_details)) {
              $error = "Đơn hàng này không có sản phẩm nào được ghi nhận.";
         }
     }
 } catch (Exception $e) {
-    // Cải tiến: Hiển thị lỗi thân thiện với người dùng (chỉ hiển thị lỗi chung chung)
+    
     $error = "Đã xảy ra lỗi khi lấy thông tin đơn hàng. Vui lòng thử lại sau.";
-    // Ghi log chi tiết lỗi vào hệ thống (thay vì in ra màn hình)
+   
     error_log("Lỗi lấy thông tin đơn hàng (ID: $order_id, User: $user_id): " . $e->getMessage());
-    // Nếu vẫn muốn debug:
-    // $error = "Lỗi khi lấy thông tin đơn hàng: " . $e->getMessage(); 
+    
 }
 
-// Cải tiến: Đóng kết nối để giải phóng tài nguyên
+
 if ($conn) {
     mysqli_close($conn);
 }
@@ -106,24 +101,24 @@ if ($conn) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
     <style>
-        /* === Reset & Font === */
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', serif; /* Giữ nguyên font Playfair Display cho nội dung */
+            font-family: 'Playfair Display', serif; 
         }
 
         body {
-            background: #fffafc; /* Tím pastel nhạt */
-            color: #5b3e55; /* Tím đậm nhẹ nhàng */
+            background: #fffafc; 
+            color: #5b3e55; 
         }
 
-        /* === Header === */
+        
         header {
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: sticky; /* Thay đổi từ fixed sang sticky để tối ưu scroll trên mobile */
+            position: sticky; 
             width: 100%;
             top: 0;
             z-index: 1000;
@@ -133,7 +128,7 @@ if ($conn) {
             font-family: 'Lobster', cursive;
             font-size: 36px;
             font-weight: 700;
-            color: #8b4e75; /* Tím pastel đậm */
+            color: #8b4e75; 
             letter-spacing: 2px;
         }
 
@@ -150,8 +145,7 @@ if ($conn) {
         }
 
         .nav-links a {
-            /* Sửa: Loại bỏ inline style, dùng CSS class/selector cho font */
-            font-family: 'Playfair Display', serif; /* Sử dụng Playfair Display cho các link */
+            font-family: 'Playfair Display', serif; 
             font-size: 25px;
             text-decoration: none;
             color: #5b3e55;
@@ -161,10 +155,8 @@ if ($conn) {
         }
 
         .nav-links a:hover {
-            color: #d6a4c1; /* Tím pastel sáng khi hover */
+            color: #d6a4c1; 
         }
-        
-        /* ... (Giữ nguyên phần còn lại của CSS đã tốt) ... */
 
         .nav-links a::after {
             content: '';
@@ -197,9 +189,8 @@ if ($conn) {
             transform: scale(1.1);
         }
 
-        /* === Order Details Section === */
+        
         .order-details-container {
-            /* Giảm margin-top vì header đã thành sticky */
             margin-top: 100px;
             padding: 50px 60px;
         }
@@ -217,7 +208,7 @@ if ($conn) {
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.5rem;
-            font-weight: 700; /* Thêm độ đậm cho thông báo lỗi */
+            font-weight: 700;
         }
 
         .order-details-content {
@@ -231,7 +222,7 @@ if ($conn) {
         }
 
         .order-details-content:hover {
-            transform: none; /* Bỏ hover transform để tránh gây rối khi đọc */
+            transform: none; 
         }
 
         .order-details-content h2 {
@@ -309,7 +300,7 @@ if ($conn) {
             text-align: center;
             margin: 20px auto 0;
             transition: background 0.3s;
-            max-width: 300px; /* Giới hạn chiều rộng nút */
+            max-width: 300px; 
         }
 
         .back-btn:hover {
@@ -320,7 +311,7 @@ if ($conn) {
             transform: scale(0.98);
         }
 
-        /* === Footer === */
+     
         footer {
             background: #f6d9e9;
             color: #a6668c;
@@ -329,9 +320,9 @@ if ($conn) {
             margin-top: 40px;
         }
 
-        /* === Responsive === */
+       
         @media (max-width: 768px) {
-            /* ... (Giữ nguyên responsive media query) ... */
+           
             nav {
                 padding: 20px 30px;
             }
@@ -365,7 +356,7 @@ if ($conn) {
             }
 
             .order-item {
-                flex-direction: column; /* Xếp dọc các mục trong item */
+                flex-direction: column; 
                 align-items: flex-start;
             }
             
@@ -380,8 +371,8 @@ if ($conn) {
 
             .order-item .price, .order-item .quantity {
                 font-size: 1.2rem;
-                margin-left: 0; /* Bỏ margin-left cho mobile */
-                margin-right: 15px; /* Thêm margin-right giữa giá và số lượng */
+                margin-left: 0; 
+                margin-right: 15px; 
             }
 
             .back-btn {
