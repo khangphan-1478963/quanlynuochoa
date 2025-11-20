@@ -1,6 +1,6 @@
 <?php
 
-// Đã cập nhật tên thương hiệu và mô tả để đồng bộ với "Jardin Secret"
+
 $title = "Về Chúng Tôi - Jardin Secret";
 $description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jardin Secret – nơi mang đến những trải nghiệm hương thơm độc đáo và tinh tế.";
 ?>
