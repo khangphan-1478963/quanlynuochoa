@@ -10,8 +10,9 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 
-$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 // Kiểm tra đăng nhập
 if (!$user_id) {
     $message = "Bạn chưa đăng nhập tài khoản. Vui lòng đăng nhập để thanh toán.";
@@ -24,7 +25,6 @@ if (!$user_id) {
     </script>";
     exit();
 }
-
 // Load thông tin khách hàng từ bảng customers
 try {
     $query = "SELECT * FROM customers WHERE user_id = ?";
