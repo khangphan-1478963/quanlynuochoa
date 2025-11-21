@@ -2,7 +2,7 @@
 session_start();
 require_once 'connect.php';
 
-// Bật hiển thị lỗi để debug (NÊN TẮT khi đưa vào môi trường Production)
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -10,16 +10,16 @@ $user_id = $_SESSION['user_id'] ?? null;
 $is_admin = false;
 $message = '';
 $orders = [];
-$edit_order = null; // Biến lưu thông tin đơn hàng đang chỉnh sửa
+$edit_order = null; 
 
-// 1. KIỂM TRA ĐĂNG NHẬP VÀ VAI TRÒ ADMIN
+
 if (!$user_id) {
     header('Location: login.php');
     exit();
 }
 
 try {
-    // Lấy vai trò (role) của người dùng
+  
     $query = "SELECT vaitro FROM taikhoan WHERE id = ?";
     $stmt = mysqli_prepare($conn, $query);
     if ($stmt === false) {
@@ -34,7 +34,7 @@ try {
     if ($user && $user['vaitro'] === 'admin') {
         $is_admin = true;
     } else {
-        // Nếu không phải admin, chuyển hướng ra ngoài
+       
         header('Location: dashboard.php');
         exit();
     }
@@ -44,7 +44,7 @@ try {
     exit();
 }
 
-// 2. XỬ LÝ HÀNH ĐỘNG LOGOUT
+
 if (isset($_GET['logout'])) {
     unset($_SESSION['user_id']);
     session_destroy();
@@ -52,19 +52,18 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-// 3. XỬ LÝ HÀNH ĐỘNG XÓA (DELETE)
+
 if (isset($_GET['delete'])) {
     $delete_id = intval($_GET['delete']);
     if ($delete_id > 0) {
         try {
-            // Xóa chi tiết đơn hàng trước
             $query_details = "DELETE FROM order_details WHERE order_id = ?";
             $stmt_details = mysqli_prepare($conn, $query_details);
             mysqli_stmt_bind_param($stmt_details, 'i', $delete_id);
             mysqli_stmt_execute($stmt_details);
             mysqli_stmt_close($stmt_details);
 
-            // Xóa đơn hàng
+     
             $query_order = "DELETE FROM orders WHERE id = ?";
             $stmt_order = mysqli_prepare($conn, $query_order);
             mysqli_stmt_bind_param($stmt_order, 'i', $delete_id);
@@ -76,18 +75,18 @@ if (isset($_GET['delete'])) {
             $message = "<div class='alert error'>Lỗi khi xóa đơn hàng: " . $e->getMessage() . "</div>";
             error_log("Lỗi xóa đơn hàng: " . $e->getMessage());
         }
-        // Chuyển hướng để xóa tham số 'delete' khỏi URL
+        
         header('Location: admin-orders.php');
         exit();
     }
 }
 
-// 4. XỬ LÝ FORM CẬP NHẬT TRẠNG THÁI (UPDATE STATUS)
+
 if (isset($_POST['update_status'])) {
     $order_id_update = intval($_POST['order_id']);
     $new_status = trim($_POST['status']);
     
-    // Kiểm tra tính hợp lệ của trạng thái mới (bạn nên định nghĩa các trạng thái hợp lệ)
+
     $valid_statuses = ['Pending', 'Processing', 'Shipping', 'Completed', 'Cancelled'];
     
     if ($order_id_update > 0 && in_array($new_status, $valid_statuses)) {
@@ -108,7 +107,7 @@ if (isset($_POST['update_status'])) {
     }
 }
 
-// 5. LẤY TẤT CẢ ĐƠN HÀNG (bao gồm cả logic Lấy thông tin đơn hàng đang sửa)
+
 try {
     $query_orders = "SELECT o.id, o.total_amount, o.created_at, o.status, t.email 
                      FROM orders o 
@@ -126,11 +125,11 @@ try {
     }
     mysqli_stmt_close($stmt_orders);
 
-    // Lấy thông tin chi tiết đơn hàng nếu đang ở chế độ chỉnh sửa
+   
     if (isset($_GET['edit'])) {
         $edit_id = intval($_GET['edit']);
         if ($edit_id > 0) {
-            // Lấy thông tin đơn hàng
+         
             $query_edit = "SELECT o.*, c.full_name, c.address, c.phone, t.email 
                            FROM orders o 
                            JOIN customers c ON o.user_id = c.user_id 
@@ -143,7 +142,7 @@ try {
             $edit_order = mysqli_fetch_assoc($result_edit);
             mysqli_stmt_close($stmt_edit);
 
-            // Lấy chi tiết sản phẩm
+            
             $query_details = "SELECT od.quantity, od.price, p.name 
                               FROM order_details od 
                               JOIN products p ON od.product_id = p.id
@@ -174,7 +173,7 @@ if ($conn) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
     <style>
-        /* === Reset & Font === */
+      
         * {
             margin: 0;
             padding: 0;
@@ -182,13 +181,13 @@ if ($conn) {
             font-family: 'Playfair Display', serif;
         }
         body {
-            background: #f4f7f9; /* Nền xám nhạt */
+            background: #f4f7f9; 
             color: #333;
         }
         
-        /* === Admin Header & Navigation === */
+        
         .admin-header {
-            background: #8b4e75; /* Tím Admin */
+            background: #8b4e75; 
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -223,7 +222,7 @@ if ($conn) {
             background: #5b3e55;
         }
 
-        /* === Main Content === */
+        
         .admin-container {
             padding: 20px;
             max-width: 1200px;
@@ -236,7 +235,7 @@ if ($conn) {
             font-size: 2.5rem;
         }
         
-        /* === Thông báo === */
+       
         .alert {
             padding: 15px;
             margin-bottom: 20px;
@@ -255,7 +254,6 @@ if ($conn) {
             border: 1px solid #f5c6cb;
         }
 
-        /* === Order List === */
         .order-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -294,15 +292,14 @@ if ($conn) {
             transition: opacity 0.3s;
         }
         .action-btn .edit {
-            background: #f0ad4e; /* Vàng */
+            background: #f0ad4e; 
             color: white;
         }
         .action-btn .delete {
-            background: #d9534f; /* Đỏ */
+            background: #d9534f; 
             color: white;
         }
 
-        /* === Edit Form (Modal-like) === */
         .edit-form-container {
             background: white;
             padding: 30px;
