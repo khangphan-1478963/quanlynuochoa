@@ -1,26 +1,21 @@
 <?php
 session_start();
 require_once 'connect.php';
-
-// Bật hiển thị lỗi để debug
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Khởi tạo giỏ hàng nếu chưa có
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-// Hàm đồng bộ giỏ hàng từ $_SESSION['cart'] vào database
 function syncCartToDatabase($conn, $user_id) {
     try {
         if (!$user_id) {
             throw new Exception("Không thể đồng bộ giỏ hàng: Người dùng chưa đăng nhập.");
         }
 
-        // Xóa giỏ hàng cũ của user trong database
         $delete_query = "DELETE FROM cart WHERE user_id = ?";
         $stmt = mysqli_prepare($conn, $delete_query);
         if (!$stmt) {
@@ -56,8 +51,6 @@ function syncCartToDatabase($conn, $user_id) {
     }
     return true;
 }
-
-// Load giỏ hàng từ database nếu $_SESSION['cart'] rỗng
 if ($user_id && empty($_SESSION['cart'])) {
     try {
         $query = "SELECT c.product_id, c.quantity, p.id, p.name, p.image, p.price 
@@ -90,12 +83,10 @@ if ($user_id && empty($_SESSION['cart'])) {
 }
 
 if (!$user_id && !empty($_SESSION['cart'])) {
-    // Nếu chưa đăng nhập nhưng có giỏ hàng trong session, xóa session để tránh lỗi
     $_SESSION['cart'] = array();
     $error = "Vui lòng đăng nhập để xem giỏ hàng.";
 }
 
-// Xử lý tăng số lượng
 if (isset($_GET['increase'])) {
     $product_id = (int)$_GET['increase'];
     if ($user_id && isset($_SESSION['cart'][$product_id]) && isset($_SESSION['cart'][$product_id]['quantity'])) {
@@ -111,7 +102,6 @@ if (isset($_GET['increase'])) {
     }
 }
 
-// Xử lý giảm số lượng
 if (isset($_GET['decrease'])) {
     $product_id = (int)$_GET['decrease'];
     if ($user_id && isset($_SESSION['cart'][$product_id]) && isset($_SESSION['cart'][$product_id]['quantity'])) {
@@ -130,7 +120,6 @@ if (isset($_GET['decrease'])) {
     }
 }
 
-// Xử lý xóa sản phẩm khỏi giỏ hàng
 if (isset($_GET['remove'])) {
     $product_id = (int)$_GET['remove'];
     if ($user_id && isset($_SESSION['cart'][$product_id])) {
@@ -146,7 +135,6 @@ if (isset($_GET['remove'])) {
     }
 }
 
-// Tính tổng tiền
 $total = 0;
 if (!empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $item) {
@@ -156,7 +144,6 @@ if (!empty($_SESSION['cart'])) {
     }
 }
 
-// Debug: Kiểm tra cấu trúc giỏ hàng
 error_log("Cart content: " . print_r($_SESSION['cart'], true));
 ?>
 
@@ -171,7 +158,7 @@ error_log("Cart content: " . print_r($_SESSION['cart'], true));
     <link rel="stylesheet" href="css/cart-style.css">
 </head>
 <body>
-    <!-- Header -->
+   
     <header>
         <nav>
             <div class="logo">Jardin Secret</div>
@@ -190,7 +177,6 @@ error_log("Cart content: " . print_r($_SESSION['cart'], true));
         </nav>
     </header>
 
-    <!-- Main Content -->
     <section class="cart-container">
         <h1 class="section-title">GIỎ HÀNG</h1>
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
@@ -224,7 +210,6 @@ error_log("Cart content: " . print_r($_SESSION['cart'], true));
         <?php endif; ?>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© <?php echo date("Y"); ?> Jardin Secret. All rights reserved.</p>
     </footer>
