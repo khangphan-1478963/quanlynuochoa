@@ -1,13 +1,12 @@
 <?php
-
-
 $title = "Về Chúng Tôi - Jardin Secret";
 $description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jardin Secret – nơi mang đến những trải nghiệm hương thơm độc đáo và tinh tế.";
 ?>
 
 <!DOCTYPE html>
 <html lang="vi">
-<head>
+
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo htmlspecialchars($description); ?>">
@@ -24,6 +23,7 @@ $description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jard
     <link rel="stylesheet" href="css/about-style.css"> 
 </head>
 <body>
+
     <header>
         <nav aria-label="Điều hướng chính">
             <div class="logo">Jardin Secret</div>
@@ -160,7 +160,6 @@ $description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jard
     </footer>
 
     <script>
-        // Giữ nguyên script smooth scroll, nhưng sửa lại biến 'totalOffset' để tính toán chuẩn hơn
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -168,8 +167,8 @@ $description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jard
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const headerHeight = document.querySelector('header').offsetHeight;
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Tính thêm chiều cao thanh điều hướng nội bộ
-                    const extraOffset = 10; // Giảm offset thêm 1 chút
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight; 
+                    const extraOffset = 10; 
                     const totalOffset = headerHeight + navbarHeight + extraOffset;
                     
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - totalOffset;
