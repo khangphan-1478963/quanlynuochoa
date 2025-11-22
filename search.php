@@ -251,7 +251,7 @@ if (isset($_POST['add_to_cart']) && isset($_POST['product_id'])) {
         <?php else: ?>
             <div class="products-grid">
                 <?php if (empty($products)): ?>
-                    <p class="no-data">Không tìm thấy sản phẩm nào với từ khóa "<?php echo htmlspecialchars($search_term, ENT_QUOTES, 'UTF-8'); ?>"</p>
+                    <p class="no-data">Không tìm thấy sản phẩm nào phù hợp với từ khóa "<?php echo htmlspecialchars($search_term, ENT_QUOTES, 'UTF-8'); ?>"</p>
                 <?php else: ?>
                     <?php foreach ($products as $product): ?>
                         <div class="product-card" onclick='openModal(<?php echo json_encode($product); ?>)'>
