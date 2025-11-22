@@ -54,7 +54,7 @@ if (isset($_GET['logout'])) {
     session_destroy();
     header('Location: login.php');
     exit();
-}
+}seuhfwuegwvbsgrwyivsgigwegipe
 
 // Lấy tất cả danh mục
 $categories = array();
