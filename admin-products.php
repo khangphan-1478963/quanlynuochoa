@@ -27,7 +27,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 if (!$user_id) {
     header('Location: login.php');
     exit();
-}jfsJFDYJA
+}
 
 try {
     $query = "SELECT vaitro FROM taikhoan WHERE id = ?";
@@ -54,7 +54,7 @@ if (isset($_GET['logout'])) {
     session_destroy();
     header('Location: login.php');
     exit();
-}
+}seuhfwuegwvbsgrwyivsgigwegipe
 
 // Lấy tất cả danh mục
 $categories = array();
