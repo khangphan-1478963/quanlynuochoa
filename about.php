@@ -1,12 +1,12 @@
 <?php
-
-$title = "Về Chúng Tôi - Nước Hoa Tinh Tế";
-$description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh Tế - nơi mang đến những trải nghiệm hương thơm độc đáo và tinh tế.";
+$title = "Về Chúng Tôi - Jardin Secret";
+$description = "Khám phá câu chuyện, sứ mệnh và đội ngũ của Jardin Secret – nơi mang đến những trải nghiệm hương thơm độc đáo và tinh tế.";
 ?>
 
 <!DOCTYPE html>
 <html lang="vi">
-<head>
+
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo htmlspecialchars($description); ?>">
@@ -23,7 +23,7 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
     <link rel="stylesheet" href="css/about-style.css"> 
 </head>
 <body>
-    <!-- Header -->
+
     <header>
         <nav aria-label="Điều hướng chính">
             <div class="logo">Jardin Secret</div>
@@ -31,8 +31,7 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
                 <a href="dashboard.php">TRANG CHỦ</a>
                 <a href="products.php">NƯỚC HOA</a>
                 <a href="collections.php">BỘ SƯU TẬP</a>
-                <a href="about.php">VỀ CHÚNG TÔI</a>
-                <a href="contact.php">LIÊN HỆ</a>
+                <a href="about.php" aria-current="page">VỀ CHÚNG TÔI</a> <a href="contact.php">LIÊN HỆ</a>
             </div>
             <div class="icons">
                 <a href="search.php" aria-label="Tìm kiếm"><i class="fas fa-search"></i></a>
@@ -41,7 +40,6 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
             </div>
         </nav>
     </header>
-    <!-- Thanh điều hướng -->
     <div class="header-content">
         <h1>VỀ CHÚNG TÔI</h1>
         <p class="slogan">Khám phá hương thơm - Chạm đến cảm xúc</p>
@@ -53,16 +51,15 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
                 <li><a href="#our-mission">Sứ Mệnh Của Chúng Tôi</a></li>
                 <li><a href="#core-values">Giá Trị Cốt Lõi</a></li>
                 <li><a href="#our-journey">Hành Trình Của Chúng Tôi</a></li>
-            </ul>
+                <li><a href="#team">Đội Ngũ</a></li> </ul>
         </div>
     </nav>
 
-    <!-- About Us Section -->
     <section class="about-us" id="about-us">
         <div class="container">
             <h2 id="who-we-are">Chúng tôi là ai?</h2>
             <p>
-                Chào mừng bạn đến với <strong>Nước Hoa Tinh Tế</strong> – nơi hương thơm kể những câu chuyện. Chúng tôi là một đội ngũ đam mê với sứ mệnh mang đến những trải nghiệm hương thơm độc đáo, tinh tế và đầy cảm xúc. Với hơn 10 năm kinh nghiệm trong ngành nước hoa (giả định để phù hợp với nội dung), chúng tôi tự hào giới thiệu những dòng sản phẩm cao cấp được tuyển chọn từ các thương hiệu nổi tiếng trên toàn thế giới, cùng với những sáng tạo độc quyền mang đậm dấu ấn cá nhân.
+                Chào mừng bạn đến với <strong>Jardin Secret</strong> – nơi hương thơm kể những câu chuyện. Chúng tôi là một đội ngũ đam mê với sứ mệnh mang đến những trải nghiệm hương thơm độc đáo, tinh tế và đầy cảm xúc. Với hơn 10 năm kinh nghiệm trong ngành nước hoa, chúng tôi tự hào giới thiệu những dòng sản phẩm cao cấp được tuyển chọn từ các thương hiệu nổi tiếng trên toàn thế giới, cùng với những sáng tạo độc quyền mang đậm dấu ấn cá nhân.
             </p>
             <p>
                 Mỗi chai nước hoa tại đây không chỉ là một mùi hương, mà còn là một hành trình cảm xúc, giúp bạn khám phá bản thân và thể hiện phong cách riêng. Chúng tôi tin rằng, một mùi hương phù hợp có thể thay đổi tâm trạng, khơi dậy ký ức và tạo nên những khoảnh khắc đáng nhớ.
@@ -70,68 +67,66 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
 
             <h2 id="our-mission">Sứ mệnh của chúng tôi</h2>
             <p>
-                Tại Nước Hoa Tinh Tế, sứ mệnh của chúng tôi là lan tỏa vẻ đẹp và cá tính qua từng giọt hương. Chúng tôi không chỉ cung cấp nước hoa, mà còn mang đến những giải pháp hương thơm cá nhân hóa, giúp bạn tìm thấy mùi hương định nghĩa chính mình. Chúng tôi cam kết đồng hành cùng bạn trong hành trình khám phá thế giới hương thơm, từ những nốt hương cổ điển đến những sáng tạo hiện đại đầy đột phá.
+                Tại Jardin Secret, sứ mệnh của chúng tôi là lan tỏa vẻ đẹp và cá tính qua từng giọt hương. Chúng tôi không chỉ cung cấp nước hoa, mà còn mang đến những giải pháp hương thơm cá nhân hóa, giúp bạn tìm thấy mùi hương định nghĩa chính mình. Chúng tôi cam kết đồng hành cùng bạn trong hành trình khám phá thế giới hương thơm, từ những nốt hương cổ điển đến những sáng tạo hiện đại đầy đột phá.
             </p>
 
             <h2 id="core-values">Giá trị cốt lõi</h2>
             <div class="core-values">
                 <ul>
-                    <li>Chất lượng là ưu tiên hàng đầu: Mọi sản phẩm đều được kiểm định kỹ lưỡng để đảm bảo chất lượng tốt nhất.</li>
-                    <li>Khách hàng là trung tâm: Chúng tôi lắng nghe và đáp ứng nhu cầu của từng khách hàng với sự tận tâm.</li>
-                    <li>Phong cách và đẳng cấp: Mỗi sản phẩm là một tác phẩm nghệ thuật, tôn vinh cái đẹp và sự tinh tế.</li>
-                    <li>Chân thành và tin cậy: Chúng tôi xây dựng niềm tin với khách hàng qua sự minh bạch và tận tụy.</li>
+                    <li>**Chất lượng là ưu tiên hàng đầu:** Mọi sản phẩm đều được kiểm định kỹ lưỡng để đảm bảo chất lượng tốt nhất.</li>
+                    <li>**Khách hàng là trung tâm:** Chúng tôi lắng nghe và đáp ứng nhu cầu của từng khách hàng với sự tận tâm.</li>
+                    <li>**Phong cách và đẳng cấp:** Mỗi sản phẩm là một tác phẩm nghệ thuật, tôn vinh cái đẹp và sự tinh tế.</li>
+                    <li>**Chân thành và tin cậy:** Chúng tôi xây dựng niềm tin với khách hàng qua sự minh bạch và tận tụy.</li>
                 </ul>
             </div>
 
             <h2 id="our-journey">Hành trình của chúng tôi</h2>
             <p>
-                Thành lập vào năm 2025, Nước Hoa Tinh Tế bắt đầu từ niềm đam mê mãnh liệt với hương thơm của nhà sáng lập – chị Nguyễn Hoa Tinh Tế. Từ một cửa hàng nhỏ tại TP. Hồ Chí Minh, chỉ trong vài tháng (tính đến ngày 18/05/2025), chúng tôi đã thu hút hơn 300 khách hàng tin tưởng. Chúng tôi đang hợp tác với các nhà chế tác nước hoa hàng đầu để mang đến những sản phẩm độc đáo, phù hợp với thị hiếu và phong cách của người Việt.
+                Thành lập vào năm 2025, Jardin Secret bắt đầu từ niềm đam mê mãnh liệt với hương thơm của nhà sáng lập – **Phan Hoàng Khang**. Từ một cửa hàng nhỏ tại TP. Hồ Chí Minh, chỉ trong vài tháng (tính đến ngày 18/05/2025), chúng tôi đã thu hút hơn 300 khách hàng tin tưởng. Chúng tôi đang hợp tác với các nhà chế tác nước hoa hàng đầu để mang đến những sản phẩm độc đáo, phù hợp với thị hiếu và phong cách của người Việt.
             </p>
 
             <div class="image-gallery">
-                <img src="images/autumn.webp" alt="Bộ sưu tập nước hoa cao cấp trên kệ trưng bày">
-                <img src="images/hinh1.jpg" alt="Quá trình chế tác nước hoa thủ công">
+                <img src="images/autumn.webp" alt="Bộ sưu tập nước hoa cao cấp trên kệ trưng bày" loading="lazy">
+                <img src="images/hinh1.jpg" alt="Quá trình chế tác nước hoa thủ công" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products" id="products">
-        <h3>Bộ Sưu Tập Nước Hoa</h3>
+        <h2>Bộ Sưu Tập Nước Hoa</h2>
         <div class="product-list">
             <div class="product-card">
-                <img src="images/aodai.webp" alt="Nước hoa Floral Elegance">
+                <img src="images/aodai.webp" alt="Nước hoa Floral Elegance" loading="lazy">
                 <h4>Floral Elegance</h4>
                 <p>Mùi hương hoa cỏ thanh lịch, phù hợp cho những buổi hẹn hò lãng mạn.</p>
             </div>
             <div class="product-card">
-                <img src="images/wood.jpg" alt="Nước hoa Woody Charm">
+                <img src="images/wood.jpg" alt="Nước hoa Woody Charm" loading="lazy">
                 <h4>Woody Charm</h4>
                 <p>Hương gỗ ấm áp, mạnh mẽ, dành cho những cá tính nổi bật.</p>
             </div>
             <div class="product-card">
-                <img src="images/cam.webp" alt="Nước hoa Citrus Breeze">
+                <img src="images/cam.webp" alt="Nước hoa Citrus Breeze" loading="lazy">
                 <h4>Citrus Breeze</h4>
                 <p>Nốt hương cam chanh tươi mát, mang lại cảm giác sảng khoái mỗi ngày.</p>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
     <section class="team" id="team">
         <div class="container">
             <h2>Đội Ngũ</h2>
             <div class="team-section">
                 <div class="team-member">
-                    <img src="images/avaKK.jpg" alt="Ảnh Phan Hoàng Khang - Nhà sáng lập">
+                    <img src="images/avaKK.jpg" alt="Ảnh Phan Hoàng Khang - Nhà sáng lập" loading="lazy">
                     <div>
                         <h4>Phan Hoàng Khang</h4>
                         <p>Nhà sáng lập & Chuyên gia hương thơm</p>
-                        <p>Với niềm đam mê mãnh liệt dành cho nước hoa, chị Khang đã dẫn dắt Nước Hoa Tinh Tế trở thành một thương hiệu uy tín, mang đến những mùi hương độc đáo.</p>
+                        <p>Với niềm đam mê mãnh liệt dành cho nước hoa, **Phan Hoàng Khang** đã dẫn dắt Jardin Secret trở thành một thương hiệu uy tín, mang đến những mùi hương độc đáo.</p>
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="images/avaT.jpg" alt="Ảnh Ngô Thị Minh Thư - Chuyên gia nước hoa">
+                    <img src="images/avaT.jpg" alt="Ảnh Ngô Thị Minh Thư - Chuyên gia nước hoa" loading="lazy">
                     <div>
                         <h4>Ngô Thị Minh Thư</h4>
                         <p>Chuyên gia nước hoa</p>
@@ -139,7 +134,7 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="images/avaH.jpg" alt="Ảnh Nguyễn Thị Bé Hằng - Chuyên gia nước hoa">
+                    <img src="images/avaH.jpg" alt="Ảnh Nguyễn Thị Bé Hằng - Chuyên gia nước hoa" loading="lazy">
                     <div>
                         <h4>Nguyễn Thị Bé Hằng</h4>
                         <p>Chuyên gia nước hoa</p>
@@ -150,7 +145,6 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2>Liên Hệ</h2>
@@ -161,13 +155,11 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© <?php echo date("Y"); ?> Jardin Secret. All rights reserved.</p>
     </footer>
 
     <script>
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -175,10 +167,10 @@ $description = "Khám phá câu chuyện và sứ mệnh của Nước Hoa Tinh 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const headerHeight = document.querySelector('header').offsetHeight;
-                    const headerContent = document.querySelector('.header-content');
-                    const headerContentPaddingTop = parseInt(window.getComputedStyle(headerContent).paddingTop);
-                    const extraOffset = 20;
-                    const totalOffset = headerHeight + headerContentPaddingTop + extraOffset;
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight; 
+                    const extraOffset = 10; 
+                    const totalOffset = headerHeight + navbarHeight + extraOffset;
+                    
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - totalOffset;
                     window.scrollTo({
                         top: targetPosition,
