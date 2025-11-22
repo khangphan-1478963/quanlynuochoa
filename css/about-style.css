@@ -272,7 +272,7 @@ nav {
 .team-member {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
     background-color: #f7e6ed;
     padding: 15px;
     border-radius: 12px;
@@ -285,7 +285,7 @@ nav {
 }
 
 .team-member img {
-    width: 100px;
+    width: 90px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
@@ -299,13 +299,13 @@ nav {
 
 .team-member p {
     color: #5b3e55;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* Contact Section */
 .contact p {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 }
 
 .contact a {
@@ -324,8 +324,8 @@ nav {
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 550;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
 }
