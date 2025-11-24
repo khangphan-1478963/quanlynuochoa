@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->num_rows > 0) {
             $error = "Tên đăng nhập hoặc email đã tồn tại!";
         } else {
-            // Mã hóa mật khẩu
             $hashed_password = md5($password);
             
             // Thêm tài khoản mới
