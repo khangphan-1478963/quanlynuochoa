@@ -25,7 +25,7 @@ if (!$user_id) {
     </script>";
     exit();
 }
-// Load thông tin khách hàng từ bảng customers
+
 try {
     $query = "SELECT * FROM customers WHERE user_id = ?";
     $stmt = mysqli_prepare($conn, $query);
