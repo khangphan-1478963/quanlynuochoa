@@ -92,27 +92,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="error-message"><?= $error ?></p>
         <?php endif; ?>
 
-        <label for="username">Username</label>
+        <label for="username">Tài khoản</label>
         <input type="text" name="username" id="username" placeholder="Username" required>
 
         <label for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="Email" required>
 
-        <label for="password">Password</label>
+        <label for="password">Mật Khẩu</label>
         <input type="password" name="password" id="password" placeholder="Password" required>
 
-        <label for="confirm_password">Confirm password</label>
+        <label for="confirm_password">Xác nhận mật khẩu</label>
         <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirm Password" required>
         <div id="password-error" class="error-message" style="display: none;">Mật khẩu không khớp!</div>
 
         <div class="checkbox-container">
             <label>
                 <input type="checkbox" id="showPassword" onclick="togglePassword()">
-                Show password
+                Hiện mật khẩu
             </label>
         </div>
 
-        <button type="submit">Register account</button>
+        <button type="submit">Đăng ký tài khoản</button>
     </form>
 
     <script>

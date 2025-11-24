@@ -48,7 +48,7 @@
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h3>Điện thoại</h3>
-                    <p>028 999 2222</p>
+                    <p>028 999 9999</p>
                     <p>Hotline: 0909 123 456</p>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Khung giờ hỗ trợ trực tuyến</h3>
-                    <p>Thứ 2 - Thứ 6: 8:00 - 20:00</p>
+                    <p>Thứ 2 - Thứ 6: 8:00 - 22:00</p>
                     <p>Thứ 7 - CN: 9:00 - 18:00</p>
                 </div>
             </div>

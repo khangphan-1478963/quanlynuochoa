@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         mysqli_stmt_close($stmt);
     } else {
-        $error = "Vui lòng nhập đầy đủ thông tin!";
+        $error = "Thông tin bị thiếu, vui lòng nhập đầy đủ thông tin!";
     }
 }
 ?>
