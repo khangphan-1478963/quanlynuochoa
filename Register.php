@@ -2,7 +2,6 @@
 session_start();
 require_once 'connect.php';
 
-// Bật hiển thị lỗi để debug (NÊN TẮT khi đưa vào môi trường Production)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -11,7 +10,7 @@ $error = null;
 $edit_order = null;
 $order_details = [];
 $products = [];
-$new_items = $_SESSION['new_order_items'] ?? []; // Danh sách sản phẩm mới/chỉnh sửa
+$new_items = $_SESSION['new_order_items'] ?? []; 
 
 // 1. KIỂM TRA ĐĂNG NHẬP VÀ VAI TRÒ ADMIN
 if (!$user_id) {
