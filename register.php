@@ -41,14 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $insert_stmt->bind_param("ssss", $username, $email, $hashed_password, $vaitro);
             
             if ($insert_stmt->execute()) {
-                // Đóng các kết nối trước khi chuyển hướng
                 $insert_stmt->close();
                 $stmt->close();
                 $conn->close();
                 
-                // Chuyển hướng về trang login với thông báo thành công
                 header("Location: login.php?register=success");
-                exit(); // Luôn dùng exit sau header Location
+                exit();
             } else {
                 $error = "Đăng ký không thành công: " . $conn->error;
             }
