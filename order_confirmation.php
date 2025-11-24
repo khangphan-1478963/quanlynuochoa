@@ -116,7 +116,7 @@ try {
                     <?php endforeach; ?>
                 </div>
 
-                <p class="confirmation-message">Cảm ơn bạn đã đặt hàng! Đơn hàng của bạn sẽ được xử lý trong thời gian sớm nhất.</p>
+                <p class="confirmation-message">Cảm ơn bạn đã đặt hàng! Đơn hàng của bạn sẽ được xử lý trong thời gian sớm nhất. Chúng tôi sẽ liên hệ trong thời gian sớm nhất để xác nhận đơn hàng</p>
                 <a href="products.php" class="back-btn">Quay về</a>
             </div>
         <?php endif; ?>

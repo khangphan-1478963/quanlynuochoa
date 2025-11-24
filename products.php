@@ -50,7 +50,6 @@ function syncCartToDatabase($conn, $user_id) {
     return true;
 }
 
-// Load giỏ hàng từ database nếu $_SESSION['cart'] rỗng
 if ($user_id && empty($_SESSION['cart'])) {
     try {
         $query = "SELECT c.product_id, c.quantity, p.id, p.name, p.image, p.price 
@@ -72,7 +71,7 @@ if ($user_id && empty($_SESSION['cart'])) {
                 'id' => $row['id'],
                 'name' => $row['name'],
                 'image' => $row['image'],
-                'price' => $row['price'] * 1000, // Nhân với 1000 thay vì 1 triệu
+                'price' => $row['price'] * 1000, 
                 'quantity' => $row['quantity']
             );
         }
@@ -113,7 +112,6 @@ try {
 
         if ($found && $selected_product) {
             if (!$user_id) {
-                // Chưa đăng nhập, hiển thị message box và chuyển hướng
                 $message = "Bạn chưa đăng nhập tài khoản. Vui lòng đăng nhập.";
                 echo "<script>
                     if (confirm(" . json_encode($message) . ")) {
@@ -169,7 +167,6 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/products-style.css">
     <style>
-        /* CSS cho thông báo */
         .notification {
             position: fixed;
             top: 80px;

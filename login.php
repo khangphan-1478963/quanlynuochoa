@@ -2,7 +2,6 @@
 session_start();
 require 'connect.php'; 
 
-// Lấy thông báo từ query param
 $message = isset($_GET['message']) ? htmlspecialchars($_GET['message']) : '';
 $error = '';
 
@@ -36,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = "Mật khẩu không đúng!";
             }
         } else {
-            $error = "Tên đăng nhập không tồn tại!";
+            $error = "Tên đăng nhập không tồn tại! Vui lòng nhập đúng thông tin";
         }
         mysqli_stmt_close($stmt);
     } else {
-        $error = "Vui lòng nhập đầy đủ thông tin!";
+        $error = "Thông tin bị thiếu!Vui lòng nhập đầy đủ thông tin!";
     }
 }
 ?>
