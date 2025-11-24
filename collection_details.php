@@ -2,18 +2,15 @@
 session_start();
 require_once 'connect.php';
 
-// Định nghĩa project_root và base_url
 $project_root = 'C:/Program Files (x86)/VertrigoServ/www/LTW';
 $base_url = '/LTW/';
 
-// Lấy id từ URL
 $collection_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 $collection = null;
 $products = array();
 
 try {
-    // Lấy thông tin bộ sưu tập
     $query_collection = "SELECT * FROM collections WHERE id = ?";
     $stmt_collection = mysqli_prepare($conn, $query_collection);
     if ($stmt_collection === false) {
@@ -25,7 +22,6 @@ try {
     $collection = mysqli_fetch_assoc($result_collection);
     mysqli_stmt_close($stmt_collection);
 
-    // Lấy danh sách sản phẩm thuộc bộ sưu tập
     $query_products = "SELECT * FROM products WHERE collection_id = ? ORDER BY id DESC";
     $stmt_products = mysqli_prepare($conn, $query_products);
     if ($stmt_products === false) {
