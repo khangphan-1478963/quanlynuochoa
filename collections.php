@@ -1,11 +1,8 @@
 <?php
 session_start();
 require_once 'connect.php';
-
-// Định nghĩa project_root
 $project_root = 'C:/Program Files (x86)/VertrigoServ/www/LTW';
 
-// Lấy danh sách bộ sưu tập từ database
 try {
     $query_collections = "SELECT * FROM collections ORDER BY id DESC";
     $result_collections = mysqli_query($conn, $query_collections);
@@ -14,9 +11,9 @@ try {
     }
     $collections = array();
     $row_count = mysqli_num_rows($result_collections);
-    error_log("Số bản ghi trong collections: " . $row_count); // Debug số bản ghi
+    error_log("Số bản ghi trong collections: " . $row_count);
     while ($row = mysqli_fetch_assoc($result_collections)) {
-        error_log("Collection data: " . json_encode($row)); // Debug dữ liệu từng bản ghi
+        error_log("Collection data: " . json_encode($row)); 
         $collections[] = $row;
     }
     mysqli_free_result($result_collections);
